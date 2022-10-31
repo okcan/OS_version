@@ -1,0 +1,16 @@
+---
+
+- name: OS Status
+  hosts: all
+  serial: 1
+  name: List the contents of home directory
+
+  tasks:
+          - name: List files and folder in home directory
+            shell: 'lsb_release -a'
+            register: command_output
+
+          - debug:
+                    var: command_output.stdout_lines
+
+
